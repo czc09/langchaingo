@@ -90,7 +90,9 @@ func (e *Executor) doIteration( // nolint
 	actions, finish, err := e.Agent.Plan(ctx, steps, inputs, opts...)
 	if e.Debug {
 		fmt.Printf("Plan Mode: True\n")
-		fmt.Printf("Plan FinishLog: %s\n", finish.Log)
+		if finish != nil {
+			fmt.Printf("Plan FinishLog: %s\n", finish.Log)
+		}
 	}
 	if finish != nil {
 		e.Finish = append(e.Finish, finish)
