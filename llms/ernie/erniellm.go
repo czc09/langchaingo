@@ -150,6 +150,30 @@ func (o *LLM) getModelPath(opts llms.CallOptions) ernieclient.ModelPath {
 
 func modelToPath(model ModelName) ernieclient.ModelPath {
 	switch model {
+	case ModelNameERNIEBot408K:
+		return "completions_pro"
+	case ModelNameERNIEBot408KPreview:
+		return "ernie-4.0-8k-preview"
+	case ModelNameERNIEBot408KLatest:
+		return "ernie-4.0-8k-latest"
+	case ModelNameERNIEBot408K0613:
+		return "ernie-4.0-8k-0613"
+	case ModelNameERNIEBot408K0329:
+		return "ernie-4.0-8k-0329"
+	case ModelNameERNIEBot40Turbo8K:
+		return "ernie-4.0-turbo-8k"
+	case ModelNameERNIEBot40Turbo8KPreview:
+		return "ernie-4.0-turbo-8k-preview"
+	case ModelNameERNIEBot358K:
+		return "completions"
+	case ModelNameERNIEBot358KPreview:
+		return "ernie-3.5-8k-preview"
+	case ModelNameERNIEBot35128K:
+		return "ernie-3.5-128k"
+	case ModelNameERNIEBot358K0613:
+		return "ernie-3.5-8k-0613"
+	case ModelNameERNIEBot358K0329:
+		return "ernie-3.5-8k-0329"
 	case ModelNameERNIEBot:
 		return "completions"
 	case ModelNameERNIEBotTurbo:
@@ -158,11 +182,11 @@ func modelToPath(model ModelName) ernieclient.ModelPath {
 		return "completions_pro"
 	case ModelNameBloomz7B:
 		return "bloomz_7b1"
-	case ModelNameLlama2_7BChat:
+	case Modelnamellama27bchat:
 		return "llama_2_7b"
-	case ModelNameLlama2_13BChat:
+	case Modelnamellama213bchat:
 		return "llama_2_13b"
-	case ModelNameLlama2_70BChat:
+	case Modelnamellama270bchat:
 		return "llama_2_70b"
 	default:
 

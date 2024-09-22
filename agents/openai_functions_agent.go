@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/tmc/langchaingo/chains"
 
 	"github.com/tmc/langchaingo/callbacks"
 	"github.com/tmc/langchaingo/llms"
@@ -71,6 +72,7 @@ func (o *OpenAIFunctionsAgent) Plan(
 	ctx context.Context,
 	intermediateSteps []schema.AgentStep,
 	inputs map[string]string,
+	opts ...chains.ChainCallOption,
 ) ([]schema.AgentAction, *schema.AgentFinish, error) {
 	fullInputs := make(map[string]any, len(inputs))
 	for key, value := range inputs {
@@ -128,9 +130,14 @@ func (o *OpenAIFunctionsAgent) Plan(
 		}
 		mcList[i] = mc
 	}
+	options := make([]chains.ChainCallOption, 0, len(opts)+1)
+	options = append(options, opts...)
+	chainCallOption := append(options, chains.WithStreamingFunc(stream))
+	llmCallOption := chains.GetLLMCallOptions(chainCallOption...)
+	llmCallOption = append(llmCallOption, llms.WithFunctions(o.functions()))
 
 	result, err := o.LLM.GenerateContent(ctx, mcList,
-		llms.WithFunctions(o.functions()), llms.WithStreamingFunc(stream))
+		llmCallOption...)
 	if err != nil {
 		return nil, nil, err
 	}

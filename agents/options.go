@@ -23,6 +23,8 @@ type Options struct {
 	// openai
 	systemMessage string
 	extraMessages []prompts.MessageFormatter
+
+	debug bool
 }
 
 // Option is a function type that can be used to modify the creation of the agents
@@ -144,6 +146,13 @@ func WithReturnIntermediateSteps() Option {
 func WithMemory(m schema.Memory) Option {
 	return func(co *Options) {
 		co.memory = m
+	}
+}
+
+// WithDebug is an option for setting debug to an executor.
+func WithDebug(debug bool) Option {
+	return func(co *Options) {
+		co.debug = debug
 	}
 }
 

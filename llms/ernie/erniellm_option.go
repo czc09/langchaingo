@@ -10,13 +10,25 @@ const (
 type ModelName string
 
 const (
-	ModelNameERNIEBot       = "ERNIE-Bot"
-	ModelNameERNIEBotTurbo  = "ERNIE-Bot-turbo"
-	ModelNameERNIEBotPro    = "ERNIE-Bot-pro"
-	ModelNameBloomz7B       = "BLOOMZ-7B"
-	ModelNameLlama2_7BChat  = "Llama-2-7b-chat"
-	ModelNameLlama2_13BChat = "Llama-2-13b-chat"
-	ModelNameLlama2_70BChat = "Llama-2-70b-chat"
+	ModelNameERNIEBot                 = "ERNIE-Bot"
+	ModelNameERNIEBotTurbo            = "ERNIE-Bot-turbo"
+	ModelNameERNIEBotPro              = "ERNIE-Bot-pro"
+	ModelNameBloomz7B                 = "BLOOMZ-7B"
+	Modelnamellama27bchat             = "Llama-2-7b-chat"
+	Modelnamellama213bchat            = "Llama-2-13b-chat"
+	Modelnamellama270bchat            = "Llama-2-70b-chat"
+	ModelNameERNIEBot408K             = "ERNIE-4.0-8K"
+	ModelNameERNIEBot408KPreview      = "ERNIE-4.0-8K-Preview"
+	ModelNameERNIEBot408KLatest       = "ERNIE-4.0-8K-Latest"
+	ModelNameERNIEBot408K0613         = "ERNIE-4.0-8K-0613"
+	ModelNameERNIEBot408K0329         = "ERNIE-4.0-8K-0329"
+	ModelNameERNIEBot40Turbo8K        = "ERNIE-4.0-Turbo-8K"
+	ModelNameERNIEBot40Turbo8KPreview = "ERNIE-4.0-Turbo-8K-Preview"
+	ModelNameERNIEBot358K             = "ERNIE-3.5-8K"
+	ModelNameERNIEBot358KPreview      = "ERNIE-3.5-8K-Preview"
+	ModelNameERNIEBot35128K           = "ERNIE-3.5-128K"
+	ModelNameERNIEBot358K0613         = "ERNIE-3.5-8K-0613"
+	ModelNameERNIEBot358K0329         = "ERNIE-3.5-8K-0329"
 )
 
 type options struct {

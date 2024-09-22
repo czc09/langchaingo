@@ -23,6 +23,11 @@ type Executor struct {
 
 	MaxIterations           int
 	ReturnIntermediateSteps bool
+
+	Debug   bool
+	Steps   [][]schema.AgentStep
+	Finish  []any
+	Actions []any
 }
 
 var (
@@ -44,10 +49,11 @@ func NewExecutor(agent Agent, opts ...Option) *Executor {
 		ReturnIntermediateSteps: options.returnIntermediateSteps,
 		CallbacksHandler:        options.callbacksHandler,
 		ErrorHandler:            options.errorHandler,
+		Debug:                   options.debug,
 	}
 }
 
-func (e *Executor) Call(ctx context.Context, inputValues map[string]any, _ ...chains.ChainCallOption) (map[string]any, error) { //nolint:lll
+func (e *Executor) Call(ctx context.Context, inputValues map[string]any, opts ...chains.ChainCallOption) (map[string]any, error) { //nolint:lll
 	inputs, err := inputsToString(inputValues)
 	if err != nil {
 		return nil, err
@@ -57,7 +63,7 @@ func (e *Executor) Call(ctx context.Context, inputValues map[string]any, _ ...ch
 	steps := make([]schema.AgentStep, 0)
 	for i := 0; i < e.MaxIterations; i++ {
 		var finish map[string]any
-		steps, finish, err = e.doIteration(ctx, steps, nameToTool, inputs)
+		steps, finish, err = e.doIteration(ctx, steps, nameToTool, inputs, opts...)
 		if finish != nil || err != nil {
 			return finish, err
 		}
@@ -79,8 +85,19 @@ func (e *Executor) doIteration( // nolint
 	steps []schema.AgentStep,
 	nameToTool map[string]tools.Tool,
 	inputs map[string]string,
+	opts ...chains.ChainCallOption,
 ) ([]schema.AgentStep, map[string]any, error) {
-	actions, finish, err := e.Agent.Plan(ctx, steps, inputs)
+	actions, finish, err := e.Agent.Plan(ctx, steps, inputs, opts...)
+	if e.Debug {
+		fmt.Printf("Plan Mode: True\n")
+		fmt.Printf("Plan FinishLog: %s\n", finish.Log)
+	}
+	if finish != nil {
+		e.Finish = append(e.Finish, finish)
+	}
+	if actions != nil {
+		e.Actions = append(e.Actions, actions)
+	}
 	if errors.Is(err, ErrUnableToParseOutput) && e.ErrorHandler != nil {
 		formattedObservation := err.Error()
 		if e.ErrorHandler.Formatter != nil {
@@ -137,6 +154,12 @@ func (e *Executor) doAction(
 	observation, err := tool.Call(ctx, action.ToolInput)
 	if err != nil {
 		return nil, err
+	}
+	if e.Debug {
+		fmt.Printf("Debug Mode: True\n")
+		fmt.Printf("Action Tool: %s\n", action.Tool)
+		fmt.Printf("Action Input: %s\n", action.ToolInput)
+		fmt.Printf("Action Output: %s\n", observation)
 	}
 
 	return append(steps, schema.AgentStep{
