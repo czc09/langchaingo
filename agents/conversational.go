@@ -3,7 +3,6 @@ package agents
 import (
 	"context"
 	_ "embed"
-	"fmt"
 	"regexp"
 	"strings"
 
@@ -149,13 +148,20 @@ func (a *ConversationalAgent) parseOutput(output string) ([]schema.AgentAction, 
 
 	r := regexp.MustCompile(`Action: (.*?)[\n]*Action Input: (.*)`)
 	matches := r.FindStringSubmatch(output)
-	if len(matches) == 0 {
-		return nil, nil, fmt.Errorf("%w: %s", ErrUnableToParseOutput, output)
+	if len(matches) != 0 {
+		return []schema.AgentAction{
+			{Tool: strings.TrimSpace(matches[1]), ToolInput: strings.TrimSpace(matches[2]), Log: output},
+		}, nil, nil
 	}
 
-	return []schema.AgentAction{
-		{Tool: strings.TrimSpace(matches[1]), ToolInput: strings.TrimSpace(matches[2]), Log: output},
-	}, nil, nil
+	// Compatible output information without any prefix
+	finishAction := &schema.AgentFinish{
+		ReturnValues: map[string]any{
+			a.OutputKey: output,
+		},
+		Log: output,
+	}
+	return nil, finishAction, nil
 }
 
 //go:embed prompts/conversational_prefix.txt
