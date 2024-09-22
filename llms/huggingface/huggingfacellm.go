@@ -5,9 +5,9 @@ import (
 	"errors"
 	"os"
 
-	"github.com/tmc/langchaingo/callbacks"
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/llms/huggingface/internal/huggingfaceclient"
+	"github.com/czc09/langchaingo/callbacks"
+	"github.com/czc09/langchaingo/llms"
+	"github.com/czc09/langchaingo/llms/huggingface/internal/huggingfaceclient"
 )
 
 var (

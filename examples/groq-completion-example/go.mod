@@ -1,4 +1,4 @@
-module github.com/tmc/langchaingo/examples/groq-completion-example
+module github.com/czc09/langchaingo/examples/groq-completion-example
 
 go 1.22.0
 
@@ -6,7 +6,7 @@ toolchain go1.22.1
 
 require (
 	github.com/joho/godotenv v1.5.1
-	github.com/tmc/langchaingo v0.1.13-pre.0
+	github.com/czc09/langchaingo v0.1.13-pre.0
 )
 
 require (

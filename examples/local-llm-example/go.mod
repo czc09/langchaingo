@@ -1,10 +1,10 @@
-module github.com/tmc/langchaingo/examples/local-llm-example
+module github.com/czc09/langchaingo/examples/local-llm-example
 
 go 1.22.0
 
 toolchain go1.22.1
 
-require github.com/tmc/langchaingo v0.1.13-pre.0
+require github.com/czc09/langchaingo v0.1.13-pre.0
 
 require (
 	github.com/dlclark/regexp2 v1.10.0 // indirect

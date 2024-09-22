@@ -3,12 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/czc09/langchaingo/chains"
+	"github.com/czc09/langchaingo/llms/openai"
+	zepLangchainMemory "github.com/czc09/langchaingo/memory/zep"
 	"github.com/getzep/zep-go"
 	zepClient "github.com/getzep/zep-go/client"
 	zepOption "github.com/getzep/zep-go/option"
-	"github.com/tmc/langchaingo/chains"
-	"github.com/tmc/langchaingo/llms/openai"
-	zepLangchainMemory "github.com/tmc/langchaingo/memory/zep"
 	"os"
 )
 

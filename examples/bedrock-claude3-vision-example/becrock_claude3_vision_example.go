@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/llms/bedrock"
+	"github.com/czc09/langchaingo/llms"
+	"github.com/czc09/langchaingo/llms/bedrock"
 )
 
 //go:embed image.png

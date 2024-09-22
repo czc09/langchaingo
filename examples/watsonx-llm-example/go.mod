@@ -1,10 +1,10 @@
-module github.com/tmc/langchaingo/examples/watsonx-llm-example
+module github.com/czc09/langchaingo/examples/watsonx-llm-example
 
 go 1.22.0
 
 toolchain go1.22.2
 
-require github.com/tmc/langchaingo v0.1.13-pre.0
+require github.com/czc09/langchaingo v0.1.13-pre.0
 
 require (
 	github.com/IBM/watsonx-go v1.0.0 // indirect

@@ -1,10 +1,10 @@
-module github.com/tmc/langchaingo/examples/mistral-summarization-example
+module github.com/czc09/langchaingo/examples/mistral-summarization-example
 
 go 1.22.0
 
 toolchain go1.22.1
 
-require github.com/tmc/langchaingo v0.1.13-pre.0
+require github.com/czc09/langchaingo v0.1.13-pre.0
 
 require (
 	github.com/AssemblyAI/assemblyai-go-sdk v1.3.0 // indirect

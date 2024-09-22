@@ -6,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/czc09/langchaingo/llms/openai"
+	"github.com/czc09/langchaingo/memory"
+	"github.com/czc09/langchaingo/schema"
 	"github.com/stretchr/testify/require"
-	"github.com/tmc/langchaingo/llms/openai"
-	"github.com/tmc/langchaingo/memory"
-	"github.com/tmc/langchaingo/schema"
 )
 
 type testConversationalRetriever struct{}

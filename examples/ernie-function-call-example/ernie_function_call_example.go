@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/tmc/langchaingo/llms/ernie"
+	"github.com/czc09/langchaingo/llms/ernie"
 
-	"github.com/tmc/langchaingo/llms"
+	"github.com/czc09/langchaingo/llms"
 )
 
 func main() {

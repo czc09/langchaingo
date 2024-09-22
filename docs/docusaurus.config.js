@@ -68,7 +68,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/tmc/langchaingo/edit/main/docs/",
+          editUrl: "https://github.com/czc09/langchaingo/edit/main/docs/",
           remarkPlugins: [
             [require("@docusaurus/remark-plugin-npm2yarn"), { sync: true }],
           ],
@@ -153,7 +153,7 @@ const config = {
           },
           // Please keep GitHub link to the right for consistency.
           {
-            href: "https://github.com/tmc/langchaingo",
+            href: "https://github.com/czc09/langchaingo",
             label: "GitHub",
             position: "right",
           },
@@ -188,7 +188,7 @@ const config = {
               },
               {
                 label: "Go",
-                href: "https://github.com/tmc/langchaingo",
+                href: "https://github.com/czc09/langchaingo",
               },
             ],
           },

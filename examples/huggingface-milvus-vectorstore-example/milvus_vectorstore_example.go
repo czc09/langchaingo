@@ -6,14 +6,14 @@ import (
 	"log"
 	"strings"
 
+	"github.com/czc09/langchaingo/embeddings"
+	"github.com/czc09/langchaingo/llms/openai"
+	"github.com/czc09/langchaingo/schema"
 	"github.com/milvus-io/milvus-sdk-go/v2/client"
 	"github.com/milvus-io/milvus-sdk-go/v2/entity"
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/llms/openai"
-	"github.com/tmc/langchaingo/schema"
 
-	"github.com/tmc/langchaingo/vectorstores"
-	"github.com/tmc/langchaingo/vectorstores/milvus"
+	"github.com/czc09/langchaingo/vectorstores"
+	"github.com/czc09/langchaingo/vectorstores/milvus"
 )
 
 const (

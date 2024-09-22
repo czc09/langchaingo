@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/czc09/langchaingo/embeddings"
+	"github.com/czc09/langchaingo/schema"
+	"github.com/czc09/langchaingo/vectorstores"
 	"github.com/milvus-io/milvus-sdk-go/v2/client"
 	"github.com/milvus-io/milvus-sdk-go/v2/entity"
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/schema"
-	"github.com/tmc/langchaingo/vectorstores"
 )
 
 // Store is a wrapper around the milvus client.

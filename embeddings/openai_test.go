@@ -5,9 +5,9 @@ import (
 	"os"
 	"testing"
 
+	"github.com/czc09/langchaingo/llms/openai"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/tmc/langchaingo/llms/openai"
 )
 
 func newOpenAIEmbedder(t *testing.T, opts ...Option) *EmbedderImpl {

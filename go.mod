@@ -1,4 +1,4 @@
-module github.com/tmc/langchaingo
+module github.com/czc09/langchaingo
 
 go 1.22.0
 
@@ -10,7 +10,6 @@ require (
 	github.com/testcontainers/testcontainers-go/modules/milvus v0.31.0
 	github.com/testcontainers/testcontainers-go/modules/mongodb v0.31.0
 	github.com/testcontainers/testcontainers-go/modules/mysql v0.31.0
-	github.com/testcontainers/testcontainers-go/modules/opensearch v0.31.0
 	github.com/testcontainers/testcontainers-go/modules/postgres v0.31.0
 	github.com/testcontainers/testcontainers-go/modules/qdrant v0.31.0
 	github.com/testcontainers/testcontainers-go/modules/redis v0.31.0
@@ -111,7 +110,7 @@ require (
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	github.com/milvus-io/milvus-proto/go-api/v2 v2.3.5 // indirect
+	github.com/milvus-io/milvus-proto/go-api/v2 v2.3.6 // indirect
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.0 // indirect
@@ -158,7 +157,6 @@ require (
 	gitlab.com/golang-commonmark/linkify v0.0.0-20191026162114-a0c2df6c8f82 // indirect
 	gitlab.com/golang-commonmark/mdurl v0.0.0-20191124015652-932350d1cb84 // indirect
 	gitlab.com/golang-commonmark/puny v0.0.0-20191124015043-9f83538fa04f // indirect
-	go.mongodb.org/mongo-driver/v2 v2.0.0-beta1 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.51.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.51.0 // indirect
@@ -211,7 +209,6 @@ require (
 	github.com/milvus-io/milvus-sdk-go/v2 v2.3.6
 	github.com/nikolalohinski/gonja v1.5.3
 	github.com/nlpodyssey/cybertron v0.2.1
-	github.com/opensearch-project/opensearch-go v1.1.0
 	github.com/pgvector/pgvector-go v0.1.1
 	github.com/pinecone-io/go-pinecone v0.4.1
 	github.com/pkoukk/tiktoken-go v0.1.6
@@ -220,6 +217,7 @@ require (
 	github.com/weaviate/weaviate-go-client/v4 v4.13.1
 	gitlab.com/golang-commonmark/markdown v0.0.0-20211110145824-bf3e522c626a
 	go.mongodb.org/mongo-driver v1.14.0
+	go.mongodb.org/mongo-driver/v2 v2.0.0-beta1
 	go.starlark.net v0.0.0-20230302034142-4b1e35fe2254
 	golang.org/x/exp v0.0.0-20230713183714-613f0c0eb8a1
 	golang.org/x/tools v0.14.0

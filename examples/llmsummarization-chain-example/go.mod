@@ -1,10 +1,10 @@
-module github.com/tmc/langchaingo/examples/llmsummarization-chain-example
+module github.com/czc09/langchaingo/examples/llmsummarization-chain-example
 
 go 1.22.0
 
 toolchain go1.22.1
 
-require github.com/tmc/langchaingo v0.1.13-pre.0
+require github.com/czc09/langchaingo v0.1.13-pre.0
 
 require (
 	cloud.google.com/go v0.114.0 // indirect

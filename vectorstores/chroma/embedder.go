@@ -4,7 +4,7 @@ import (
 	"context"
 
 	chromatypes "github.com/amikos-tech/chroma-go/types"
-	"github.com/tmc/langchaingo/embeddings"
+	"github.com/czc09/langchaingo/embeddings"
 )
 
 var _ chromatypes.EmbeddingFunction = chromaGoEmbedder{} // compile-time check
