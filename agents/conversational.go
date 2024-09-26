@@ -133,25 +133,25 @@ func constructScratchPad(steps []schema.AgentStep) string {
 }
 
 func (a *ConversationalAgent) parseOutput(output string) ([]schema.AgentAction, *schema.AgentFinish, error) {
-	if strings.Contains(output, _conversationalFinalAnswerAction) {
-		splits := strings.Split(output, _conversationalFinalAnswerAction)
 
-		finishAction := &schema.AgentFinish{
-			ReturnValues: map[string]any{
-				a.OutputKey: splits[len(splits)-1],
-			},
-			Log: output,
-		}
-
-		return nil, finishAction, nil
-	}
-
-	r := regexp.MustCompile(`Action: (.*?)[\n]*Action Input: (.*)`)
+	r := regexp.MustCompile(`(?i)Action: (.*?)[\n]*Action Input: (.*)`)
 	matches := r.FindStringSubmatch(output)
 	if len(matches) != 0 {
 		return []schema.AgentAction{
 			{Tool: strings.TrimSpace(matches[1]), ToolInput: strings.TrimSpace(matches[2]), Log: output},
 		}, nil, nil
+	}
+
+	r = regexp.MustCompile(`(?i)` + _conversationalFinalAnswerAction + ` (.*)`)
+	matches = r.FindStringSubmatch(output)
+	if len(matches) != 0 {
+		finishAction := &schema.AgentFinish{
+			ReturnValues: map[string]any{
+				a.OutputKey: matches[1],
+			},
+			Log: output,
+		}
+		return nil, finishAction, nil
 	}
 
 	// Compatible output information without any prefix
